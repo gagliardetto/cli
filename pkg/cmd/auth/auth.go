@@ -1,6 +1,7 @@
 package auth
 
 import (
+	gitCacheCmd "github.com/cli/cli/pkg/cmd/auth/gitcache"
 	gitCredentialCmd "github.com/cli/cli/pkg/cmd/auth/gitcredential"
 	authLoginCmd "github.com/cli/cli/pkg/cmd/auth/login"
 	authLogoutCmd "github.com/cli/cli/pkg/cmd/auth/logout"
@@ -24,6 +25,7 @@ func NewCmdAuth(f *cmdutil.Factory) *cobra.Command {
 	cmd.AddCommand(authStatusCmd.NewCmdStatus(f, nil))
 	cmd.AddCommand(authRefreshCmd.NewCmdRefresh(f, nil))
 	cmd.AddCommand(gitCredentialCmd.NewCmdCredential(f, nil))
+	cmd.AddCommand(gitCacheCmd.NewCmdGitCache(f, nil))
 
 	return cmd
 }
