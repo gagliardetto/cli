@@ -47,7 +47,7 @@ func NewCmdGitCache(f *cmdutil.Factory, runF func(*GitCacheOptions) error) *cobr
 			if runF != nil {
 				return runF(opts)
 			}
-			return refreshRun(opts)
+			return gitCacheRun(opts)
 		},
 	}
 
@@ -56,7 +56,7 @@ func NewCmdGitCache(f *cmdutil.Factory, runF func(*GitCacheOptions) error) *cobr
 	return cmd
 }
 
-func refreshRun(opts *GitCacheOptions) error {
+func gitCacheRun(opts *GitCacheOptions) error {
 	cfg, err := opts.Config()
 	if err != nil {
 		return err
